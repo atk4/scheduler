@@ -22,5 +22,14 @@ $app->add('LoremIpsum');
 // Todo, acc Columns
 
 
-new Model\Teacher();
-
+$app->add(['Button', 'send testing sms'])->on('click',  function() use($app) {
+    $app->sms->messages->create(
+    // the number you'd like to send the message to
+    '+44 7427599339',
+    array(
+        // A Twilio phone number you purchased at twilio.com/console
+        'from' => '+15017250604',
+        // the body of the text message you'd like to send
+        'body' => 'Hey Jenny! Good luck on the bar exam!'
+    ));
+});

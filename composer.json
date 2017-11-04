@@ -5,6 +5,7 @@
         }
     },
   "require":{
-    "atk4/ui": "*"
+    "atk4/ui": "*",
+        "twilio/sdk": "^5.15"
   }
 }
