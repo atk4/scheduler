@@ -6,15 +6,14 @@ $menu->addClass('vertical');
 
 foreach($subject as $row) {
     $submenu = $menu->addMenu($row['name']);
-    $subject->load($row->id);
+//    $subject->load($row->id);
     $teacher = $subject->ref('Teacher');
     foreach($teacher as $rows) {
-      $submenu->addItem([$rows['name'],['application', 'name'=>$rows['name'],'phone'=>$rows['contact_phone']]]);
+      $submenu->addItem($rows['name'],['application', 'name'=>$rows['name'],'phone'=>$rows['contact_phone']]);
     }
     unset($rows);
 }
 unset($row);
-
 
 // Todo, acc Columns
 
