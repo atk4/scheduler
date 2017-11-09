@@ -1,22 +1,19 @@
 <?php
-require 'vendor/autoload.php';
-
-
-
-$app = new App('public');
+require 'init.php';
 
 $menu = $app->add('Menu');
-
-
-$subject = new Model\Subject($app->db);
+$menu->addClass('vertical');
 
 foreach($subject as $row) {
-    $menu->addItem($row['name'], ['index', 'subject'=>$row->id]);
+    $submenu = $menu->addMenu($row['name']);
+    $subject->load($row->id);
+    $teacher = $subject->ref('Teacher');
+    foreach($teacher as $rows) {
+      $submenu->addItem([$rows['name'],['application', 'name'=>$rows['name'],'phone'=>$rows['contact_phone']]]);
+    }
+    unset($rows);
 }
-
-$app->stickyGet('subject');
-
-$app->add('LoremIpsum');
+unset($row);
 
 
 // Todo, acc Columns
@@ -33,3 +30,6 @@ $app->add(['Button', 'send testing sms'])->on('click',  function() use($app) {
         'body' => 'Hey Jenny! Good luck on the bar exam!'
     ));
 });
+
+
+//['index', 'subject'=>$row->id]
