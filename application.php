@@ -1,5 +1,6 @@
 <?php
   require 'init.php';
-  $name = $_GET['name'];
-  $phone = $_GET['phone'];
+  $teacher->load($_GET['id']);
+  $name = $teacher['name'];
+  $phone = $teacher['contact_phone'];
   $header = $app->add(['Header',$name.' ('.$phone.')']);

@@ -9,7 +9,7 @@ foreach($subject as $row) {
 //    $subject->load($row->id);
     $teacher = $subject->ref('Teacher');
     foreach($teacher as $rows) {
-      $submenu->addItem($rows['name'],['application', 'name'=>$rows['name'],'phone'=>$rows['contact_phone']]);
+      $submenu->addItem($rows['name'],['application', 'id'=>$rows['id']]);
     }
     unset($rows);
 }
