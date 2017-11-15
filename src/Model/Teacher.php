@@ -10,6 +10,8 @@ class Teacher extends \atk4\data\Model {
 
         $this->addField('name');
         $this->addField('contact_phone');
+        $this->addField('nick_name');
+        $this->addField('password',['type'=>'password']);
 
         $this->hasOne('subject_id', new Subject())
             ->addTitle();
@@ -17,4 +19,3 @@ class Teacher extends \atk4\data\Model {
         $this->getElement('subject_id')->ui['visible'] = false;
     }
 }
-
