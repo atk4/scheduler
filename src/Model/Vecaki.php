@@ -5,6 +5,7 @@ class Vecaki extends \atk4\data\Model {
     public $table = 'vecaki';
     public $title = 'Родитель';
     public $name = 'nick_name';
+    public $title_field = 'parent_name';
 
     function init() {
         parent::init();
