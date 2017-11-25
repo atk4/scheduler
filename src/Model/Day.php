@@ -2,11 +2,13 @@
 namespace Model;
 
 class Day extends \atk4\data\Model {
-    public $table = 'day';
+    public $table = 'Day';
     public $title = 'День';
 
     function init() {
         parent::init();
+        $this->addField('name');
+        $this->getElement('name')->ui['visible'] = false;
 
         $this->addField('date',['type'=>'date']);
 
@@ -14,5 +16,6 @@ class Day extends \atk4\data\Model {
             ->addTitle();
 
         $this->getElement('teacher_id')->ui['visible'] = false;
+        $this->hasMany('time');
     }
 }

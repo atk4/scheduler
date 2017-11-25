@@ -12,10 +12,10 @@ class Time extends \atk4\data\Model {
         $this->addField('is_available',['type'=>'boolean']);
         $this->addField('time',['type'=>'time']);
 
-        /*$this->hasOne('day_id', new Day())
+        $this->hasOne('day_id', new Day())
             ->addTitle();
 
-        $this->getElement('day_id')->ui['visible'] = false;*/
+        $this->getElement('day_id')->ui['visible'] = false;
 
 
         $this->hasOne('vecaki_id', new Vecaki())
