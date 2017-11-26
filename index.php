@@ -9,7 +9,19 @@ foreach($subject as $row) {
 //    $subject->load($row->id);
     $teacher = $subject->ref('Teacher');
     foreach($teacher as $rows) {
-      $submenu->addItem($rows['name'],['application', 'id'=>$rows['id']]);
+      $submenu->addMenu($rows['name']);
+      $timeslot = $teacher->ref('Inter')->ref('Timeslot');
+      foreach($timeslot as $rowss) {
+        $subsubmenu = $submenu->addItem($rowss['time'])->on('click', function() use($app) {
+          $form = $app->layout->add('Form');
+          $form->setModel(new Parents($db));
+          $form->onSubmit(function($form) {
+            $form->model->save();
+            return $form->success('Вы оформили заявку!');
+          });
+        });
+      }
+      unset($rowss);
     }
     unset($rows);
 }
@@ -29,6 +41,3 @@ $app->add(['Button', 'send testing sms'])->on('click',  function() use($app) {
         'body' => 'Hey Jenny! Good luck on the bar exam!'
     ));
 });
-
-
-//['index', 'subject'=>$row->id]

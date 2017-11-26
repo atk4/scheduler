@@ -2,7 +2,7 @@
   require 'init.php';
   $teacher->load($_GET['id']);
   $name = $teacher['name'];
-  $phone = $teacher['contact_phone'];
+  $phone = $teacher['phone'];
   $header = $app->add(['Header',$name.' ('.$phone.')']);
 //$timeslot = $day->ref('Timeslot');
   $menu = $app->add('Menu');
@@ -32,4 +32,5 @@
         }
     }
     $menuitem= $menu->addMenu($date_day.'.'.$date_month);
+
   }

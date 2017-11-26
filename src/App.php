@@ -18,7 +18,7 @@ class App extends \atk4\ui\App {
 
 //        include'local.settings.php';
 
-        $this->db = \atk4\data\Persistence::connect('mysql://MySite:12345@localhost/scheduler');
+        $this->db = \atk4\data\Persistence::connect('mysql://MySite:12345@localhost/scheduler2');
 //        $this->sms = new \Twilio\Rest\Client ($SETTINGS['twillio_account'], $SETTINGS['twillio_token']);
     }
 }
