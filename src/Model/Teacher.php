@@ -19,6 +19,6 @@ class Teacher extends \atk4\data\Model {
 
         $this->getElement('subject_id')->ui['visible'] = true;
 
-        $this->hasMany('Day');
+        $this->hasMany('Inter');
     }
 }
