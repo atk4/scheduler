@@ -8,6 +8,6 @@ class Timeslot extends \atk4\data\Model {
     function init() {
         parent::init();
         $this->addField('time');
-        $this->hasOne('timeslot_id', new Inter());
+        $this->hasMany('Inter', new Inter());
     }
 }
