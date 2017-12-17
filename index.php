@@ -7,14 +7,12 @@ $menu->addClass('vertical');
 foreach($subject as $row) {
     $submenu = $menu->addMenu($row['name']);
 //    $subject->load($row->id);
-    $teacher = $subject->ref('Teacher');
     foreach($teacher as $rows) {
       $submenu->addMenu($rows['name']);
-      $timeslot = $teacher->ref('Inter')->ref('Timeslot');
       foreach($timeslot as $rowss) {
         $subsubmenu = $submenu->addItem($rowss['time'])->on('click', function() use($app) {
           $form = $app->layout->add('Form');
-          $form->setModel(new Parents($db));
+          $form->setModel($parents);
           $form->onSubmit(function($form) {
             $form->model->save();
             return $form->success('Вы оформили заявку!');
@@ -28,7 +26,6 @@ foreach($subject as $row) {
 unset($row);
 
 // Todo, acc Columns
-
 
 $app->add(['Button', 'send testing sms'])->on('click',  function() use($app) {
     $app->sms->messages->create(
