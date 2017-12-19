@@ -1,19 +1,23 @@
 <?php
-require 'init.php';
+require 'vendor/autoload.php';
+$app = new App('public');
+
 
 $menu = $app->add('Menu');
 $menu->addClass('vertical');
 
+$subject = new Model\Subject($app->db);
 foreach($subject as $row) {
     $submenu = $menu->addMenu($row['name']);
-//    $subject->load($row->id);
-
+    $teacher = $subject->ref('Teacher');
+    $inter = $teacher->ref('Inter');
     foreach($teacher as $rows) {
       $subsubmenu = $submenu->addMenu($rows['name']);
-//      $timeslot = $teacher->ref('Inter')->ref('Timeslot');
-/*      foreach($timeslot as $rowss) {
+      $timeslot = $inter->ref('timeslot_id');
+      foreach($timeslot as $rowss) {
         $subsubmenu->addItem($rowss['time']);
         $subsubmenu->on('click', function() use($app) {
+          $parents = $timeslot->ref('id');
           $form = $app->layout->add('Form');
           $form->setModel($parents);
           $form->onSubmit(function($form) {
@@ -22,7 +26,7 @@ foreach($subject as $row) {
           });
         });
       }
-      unset($rowss);*/
+      unset($rowss);
     }
     unset($rows);
 }
