@@ -1,26 +1,31 @@
 <?php
-require 'vendor/autoload.php';
-
-
-
-$app = new App('public');
+require 'init.php';
 
 $menu = $app->add('Menu');
-
-
-$subject = new Model\Subject($app->db);
+$menu->addClass('vertical');
 
 foreach($subject as $row) {
-    $menu->addItem($row['name'], ['index', 'subject'=>$row->id]);
+    $submenu = $menu->addMenu($row['name']);
+//    $subject->load($row->id);
+    foreach($teacher as $rows) {
+      $submenu->addMenu($rows['name']);
+      foreach($timeslot as $rowss) {
+        $subsubmenu = $submenu->addItem($rowss['time'])->on('click', function() use($app) {
+          $form = $app->layout->add('Form');
+          $form->setModel($parents);
+          $form->onSubmit(function($form) {
+            $form->model->save();
+            return $form->success('Вы оформили заявку!');
+          });
+        });
+      }
+      unset($rowss);
+    }
+    unset($rows);
 }
-
-$app->stickyGet('subject');
-
-$app->add('LoremIpsum');
-
+unset($row);
 
 // Todo, acc Columns
-
 
 $app->add(['Button', 'send testing sms'])->on('click',  function() use($app) {
     $app->sms->messages->create(
