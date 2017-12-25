@@ -10,7 +10,7 @@ class Time extends \atk4\data\Model {
         parent::init();
 
         $this->addField('is_available',['type'=>'boolean']);
-        $this->addField('name',['type'=>'time']);
+        $this->addField('name',['type'=>'time','caption'=>'Time']);
 
         //$this->hasMany('Inter');
 
