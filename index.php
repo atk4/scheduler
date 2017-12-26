@@ -10,15 +10,16 @@ $subject = new Model\Subject($app->db);
 foreach($subject as $row) {
     $submenu = $menu->addMenu($row['name']);
     $teacher = $subject->ref('Teacher');
-    $inter = $teacher->ref('Inter');
     foreach($teacher as $rows) {
       $subsubmenu = $submenu->addMenu($rows['name']);
-      $timeslot = $inter->ref('timeslot_id');
+      $timeslot = $teacher->ref('Time');
       foreach($timeslot as $rowss) {
-        $subsubmenu->addItem($rowss['time']);
+        //add free timeslots (by hand)
+        $subsubmenu->addItem($rowss['name']);
         $subsubmenu->on('click', function() use($app) {
-          $parents = $timeslot->ref('id');
           $form = $app->layout->add('Form');
+          //fix form
+          $parents =  new Model\Vecaki($app->db);
           $form->setModel($parents);
           $form->onSubmit(function($form) {
             $form->model->save();
@@ -46,3 +47,7 @@ $app->add(['Button', 'send testing sms'])->on('click',  function() use($app) {
         'body' => 'Hey Jenny! Good luck on the bar exam!'
     ));
 });
+
+
+$button = $app->layout->add(['Button','admin','icon'=>'space shuttle']);
+$button->link(['admin']);

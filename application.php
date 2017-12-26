@@ -1,9 +1,12 @@
 <?php
-  require 'init.php';
-  $teacher->load($_GET['id']);
-  $name = $teacher['name'];
-  $phone = $teacher['phone'];
-  $header = $app->add(['Header',$name.' ('.$phone.')']);
+require 'vendor/autoload.php';
+$app = new App('public');
+
+//  require 'init.php';
+//  $teacher->load($_GET['id']);
+//  $name = $teacher['name'];
+//  $phone = $teacher['phone'];
+//  $header = $app->add(['Header',$name.' ('.$phone.')']);
 //$timeslot = $day->ref('Timeslot');
   $menu = $app->add('Menu');
   for($i=14;$i<=21;$i++) {

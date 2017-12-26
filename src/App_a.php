@@ -16,9 +16,10 @@ class App extends \atk4\ui\App {
             $this->layout->leftMenu->addItem(['Admin demo', 'icon'=>'dashboard'], ['admin']);
         }
 
-//        include'local.settings.php';
+        include'local.settings.php';
 
-        $this->db = \atk4\data\Persistence::connect('mysql://MySite:12345@localhost/scheduler');
-//        $this->sms = new \Twilio\Rest\Client ($SETTINGS['twillio_account'], $SETTINGS['twillio_token']);
+        //$this->db = \atk4\data\Persistence::connect('mysql://root:root@localhost/scheduler');
+        $this->db = new	\atk4\data\Persistence_SQL('mysql:dbname=scheduler;host=localhost','root','');
+        $this->sms = new \Twilio\Rest\Client ($SETTINGS['twillio_account'], $SETTINGS['twillio_token']);
     }
 }
