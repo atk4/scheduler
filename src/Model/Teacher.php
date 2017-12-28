@@ -17,7 +17,7 @@ class Teacher extends \atk4\data\Model {
 
         $this->getElement('subject_id')->ui['visible'] = false;
 
-        $this->hasMany('Time');
+        $this->hasMany('Vecaki');
 
         //$this->hasMany('Inter');
     }
