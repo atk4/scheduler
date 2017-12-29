@@ -13,7 +13,8 @@ class Vecaki extends \atk4\data\Model {
         $this->addField('student_name');
         $this->addField('parent_name');
         $this->addField('contact_phone');
-        $this->hasMany('Time', new Time);
+        $this->addField('time');
+        $this->hasOne('teacher_id', new Teacher);
 
     }
 }
