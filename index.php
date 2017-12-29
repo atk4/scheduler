@@ -24,17 +24,17 @@ foreach($subject as $row) {
             $time = $hour.':'.$min;
           }
           $parents=$teacher->ref('Vecaki');
-          if($parents->tryLoad(1)==FALSE){
-              $subsubmenu->addItem($time);
-          } else {
-              foreach($parents as $rowss){
-                if ($parents['time']==$time){
-                  $subsubmenu->addItem([$time,'disabled']);
-                } else {
-                  $subsubmenu->addItem($time);
-                }
+          if($parents->tryLoadAny()==TRUE) {
+            foreach($parents as $rowss) {
+              if ($rowss['time']==$time) {
+                $subsubmenu->addItem([$time,'disabled']);
+              } else {
+                $subsubmenu->addItem($time);
               }
-              unset($rowss);
+            }
+            unset($rowss);
+          } else {
+              $subsubmenu->addItem($time);
             }
           $min=$min+5;
         }
