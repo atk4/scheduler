@@ -24,7 +24,7 @@ foreach($subject as $row) {
             $time = $hour.':'.$min;
           }
           $parents=$teacher->ref('Vecaki');
-          if($parents->tryLoadAny()==TRUE) {
+          if($parents->tryLoadAny()->loaded()==TRUE) {
             foreach($parents as $rowss) {
               if ($rowss['time']==$time) {
                 $subsubmenu->addItem([$time,'disabled']);
