@@ -3,6 +3,11 @@
 require 'vendor/autoload.php';
 $app = new App('public');
 
+$button_back = $app->add(['Button','Обратно на главную страницу','big primary','icon'=>'home'])
+->link(['index']);
+
+$app->add(['ui'=>'divider']);
+
 $teacher = new Model\Teacher($app->db);
 $teacher->setOrder('name');
 $grid = $app->add('Grid');
