@@ -25,16 +25,16 @@ foreach($subject as $row) {
           }
           $parents=$teacher->ref('Vecaki');
           if($parents->tryLoad(1)==FALSE){
-            foreach($parents as $rowss){
               $subsubmenu->addItem($time);
-            }
-            unset($rowss);
           } else {
-              if ($rowss['time']==$time){
-                $subsubmenu->addItem([$time,'disabled']);
-              } else {
-                $subsubmenu->addItem($time);
+              foreach($parents as $rowss){
+                if ($parents['time']==$time){
+                  $subsubmenu->addItem([$time,'disabled']);
+                } else {
+                  $subsubmenu->addItem($time);
+                }
               }
+              unset($rowss);
             }
           $min=$min+5;
         }
@@ -69,3 +69,7 @@ $app->add(['Button', 'send testing sms'])->on('click',  function() use($app) {
 
 $button = $app->layout->add(['Button','admin','icon'=>'space shuttle']);
 $button->link(['admin']);
+
+
+$button2 = $app->layout->add(['Button','Для учителей','icon'=>'student']);
+$button2->link(['teachers']);
