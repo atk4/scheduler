@@ -17,3 +17,4 @@ class App extends \atk4\ui\App {
         }
         $this->db = \atk4\data\Persistence::connect('mysql://MySite:12345@localhost/scheduler');
 }
+}
