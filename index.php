@@ -11,6 +11,7 @@ foreach($subject as $row) {
     $submenu = $menu->addMenu($row['name']);
     $teacher = $subject->ref('Teacher');
     foreach($teacher as $rows) {
+      $teacher_id = $teacher->id;
       $subsubmenu = $submenu->addMenu($rows['name']);
       $min=0;
       for ($hour=17;$hour<=18;$hour++) {
@@ -29,17 +30,46 @@ foreach($subject as $row) {
               if ($rowss['time']==$time) {
                 $subsubmenu->addItem([$time,'disabled']);
               } else {
-                $subsubmenu->addItem($time);
+                $parents = new Model\Vecaki($app->db);
+
+                $vir = $app->add('VirtualPage');
+                $vir->set(function($vir) use ($parents,$time,$teacher_id) {
+                  $form = $vir->add('Form');
+                  $form->setModel($parents,['student_name','parent_name','contact_phone']);
+                  $parents['time'] = $time;
+                  $parents['teacher_id'] = $teacher_id;
+                  $form->onSubmit(function($form) {
+                    $form->model->save();
+                    return $form->success('Вы оформили заявку!');
+                  });
+                });
+
+                $subsubmenu->addItem($time)->on('click', new \atk4\ui\jsModal('Work',$vir));
+
               }
             }
             unset($rowss);
           } else {
-              $subsubmenu->addItem($time);
+            $parents = new Model\Vecaki($app->db);
+
+            $vir = $app->add('VirtualPage');
+            $vir->set(function($app) use ($parents,$time,$teacher_id) {
+              $form = $app->add('Form');
+              $form->setModel($parents,['student_name','parent_name','contact_phone']);
+              $parents['time'] = $time;
+              $parents['teacher_id'] = $teacher_id;
+              $form->onSubmit(function($form) {
+                $form->model->save();
+                return $form->success('Вы оформили заявку!');
+              });
+            });
+
+            $subsubmenu->addItem($time)->on('click', new \atk4\ui\jsModal('Work',$vir));
             }
           $min=$min+5;
         }
       }
-        $subsubmenu->on('click', function() use($app) {
+        /*$subsubmenu->on('click', function() use($app) {
           $form = $app->layout->add('Form');
           //fix form
           $parents =  new Model\Vecaki($app->db);
@@ -48,7 +78,7 @@ foreach($subject as $row) {
             $form->model->save();
             return $form->success('Вы оформили заявку!');
           });
-        });
+        });*/
     }
     unset($rows);
 }
@@ -73,3 +103,71 @@ $button->link(['admin']);
 
 $button2 = $app->layout->add(['Button','Для учителей','icon'=>'student']);
 $button2->link(['teachers']);
+
+/*$subsubmenu = $app->add('Button')->on('click', function() use($app) {
+  $form = $app->layout->add('Form');
+  //fix form
+  $parents =  new Model\Vecaki($app->db);
+  $form->setModel($parents);
+  $form->onSubmit(function($form) {
+    $form->model->save();
+    return $form->success('Вы оформили заявку!');
+  });
+}); */
+
+/*$form = $app->layout->add('Form');
+//fix form
+$parents =  new Model\Vecaki($app->db);
+$form->setModel($parents);
+$form->onSubmit(function($form) {
+  $form->model->save();
+  return $form->success('Вы оформили заявку!');
+}); */
+
+/*$button = $app->add('Button')->on('click', new \atk4\ui\jsModal(function() use($app) {
+  $form = $app->layout->add('Form');
+  //fix form
+  $parents =  new Model\Vecaki($app->db);
+  $form->setModel($parents);
+  $form->onSubmit(function($form) {
+    $form->model->save();
+    return $form->success('Вы оформили заявку!');
+  });
+})); */
+
+//$button = $app->add('Button')->on('click', new \atk4\ui\jsModal('Lol',$vp = $app->add('VirtualPage')->add('LoremIpsum')));
+//$vp = $app->add('VirtualPage');
+//$vp->set(function ($p) use () { return new \atk4\ui\jsExpression('document.location="dashboard.php"');
+
+//});
+
+/*$vp = $app->add('VirtualPage');
+$vp->set(function($app) {
+  $form = $app->layout->add('Form');
+  $parents =  new Model\Vecaki($app->db);
+  $form->setModel($parents);
+  $form->onSubmit(function($form) {
+    $form->model->save();
+    return $form->success('Вы оформили заявку!');
+  });
+
+});
+
+$button = $app->add('Button')->on('click', new \atk4\ui\jsModal('Lol',$vp)); */
+
+$parents = new Model\Vecaki($app->db);
+
+$vir = $app->add('VirtualPage');
+$vir->set(function($app) use ($parents) {
+  $app->add(['Button','Work']);
+  $form = $app->add('Form');
+  $form->setModel($parents);
+  $form->onSubmit(function($form) {
+    $form->model->save();
+    return $form->success('Вы оформили заявку!');
+  });
+});
+
+$app->add(['ui'=>'divider']);
+
+$button = $app->add(['Button','Test'])->on('click', new \atk4\ui\jsModal('Work',$vir));
