@@ -94,7 +94,3 @@ $vir->set(function($app) use ($parents) {
     return $form->success('Вы оформили заявку!');
   });
 });
-
-$app->add(['ui'=>'divider']);
-
-$button = $app->add(['Button','Test'])->on('click', new \atk4\ui\jsModal('Work',$vir));
