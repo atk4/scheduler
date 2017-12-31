@@ -69,33 +69,10 @@ foreach($subject as $row) {
           $min=$min+5;
         }
       }
-        /*$subsubmenu->on('click', function() use($app) {
-          $form = $app->layout->add('Form');
-          //fix form
-          $parents =  new Model\Vecaki($app->db);
-          $form->setModel($parents);
-          $form->onSubmit(function($form) {
-            $form->model->save();
-            return $form->success('Вы оформили заявку!');
-          });
-        });*/
     }
     unset($rows);
 }
 unset($row);
-
-$app->add(['Button', 'send testing sms'])->on('click',  function() use($app) {
-    $app->sms->messages->create(
-    // the number you'd like to send the message to
-    '+44 7427599339',
-    array(
-        // A Twilio phone number you purchased at twilio.com/console
-        'from' => '+15017250604',
-        // the body of the text message you'd like to send
-        'body' => 'Hey Jenny! Good luck on the bar exam!'
-    ));
-});
-
 
 $button = $app->layout->add(['Button','admin','icon'=>'space shuttle']);
 $button->link(['admin']);
@@ -104,56 +81,6 @@ $button->link(['admin']);
 $button2 = $app->layout->add(['Button','Для учителей','icon'=>'student']);
 $button2->link(['teachers']);
 
-/*$subsubmenu = $app->add('Button')->on('click', function() use($app) {
-  $form = $app->layout->add('Form');
-  //fix form
-  $parents =  new Model\Vecaki($app->db);
-  $form->setModel($parents);
-  $form->onSubmit(function($form) {
-    $form->model->save();
-    return $form->success('Вы оформили заявку!');
-  });
-}); */
-
-/*$form = $app->layout->add('Form');
-//fix form
-$parents =  new Model\Vecaki($app->db);
-$form->setModel($parents);
-$form->onSubmit(function($form) {
-  $form->model->save();
-  return $form->success('Вы оформили заявку!');
-}); */
-
-/*$button = $app->add('Button')->on('click', new \atk4\ui\jsModal(function() use($app) {
-  $form = $app->layout->add('Form');
-  //fix form
-  $parents =  new Model\Vecaki($app->db);
-  $form->setModel($parents);
-  $form->onSubmit(function($form) {
-    $form->model->save();
-    return $form->success('Вы оформили заявку!');
-  });
-})); */
-
-//$button = $app->add('Button')->on('click', new \atk4\ui\jsModal('Lol',$vp = $app->add('VirtualPage')->add('LoremIpsum')));
-//$vp = $app->add('VirtualPage');
-//$vp->set(function ($p) use () { return new \atk4\ui\jsExpression('document.location="dashboard.php"');
-
-//});
-
-/*$vp = $app->add('VirtualPage');
-$vp->set(function($app) {
-  $form = $app->layout->add('Form');
-  $parents =  new Model\Vecaki($app->db);
-  $form->setModel($parents);
-  $form->onSubmit(function($form) {
-    $form->model->save();
-    return $form->success('Вы оформили заявку!');
-  });
-
-});
-
-$button = $app->add('Button')->on('click', new \atk4\ui\jsModal('Lol',$vp)); */
 
 $parents = new Model\Vecaki($app->db);
 

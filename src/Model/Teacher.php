@@ -19,6 +19,5 @@ class Teacher extends \atk4\data\Model {
 
         $this->hasMany('Vecaki', new Vecaki);
 
-        //$this->hasMany('Inter');
     }
 }
