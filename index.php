@@ -33,3 +33,6 @@ $app->add(['Button', 'send testing sms'])->on('click',  function() use($app) {
         'body' => 'Hey Jenny! Good luck on the bar exam!'
     ));
 });
+
+$button = $app->layout->add(['Button','admin','icon'=>'space shuttle']);
+$button->link(['admin']);

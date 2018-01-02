@@ -4,6 +4,7 @@ namespace Model;
 class Teacher extends \atk4\data\Model {
     public $table = 'teacher';
     public $title = 'Учитель';
+    public $name = 'Учитель';
 
     function init() {
         parent::init();
@@ -15,6 +16,9 @@ class Teacher extends \atk4\data\Model {
             ->addTitle();
 
         $this->getElement('subject_id')->ui['visible'] = false;
+
+        $this->hasMany('Vecaki');
+
+        //$this->hasMany('Inter');
     }
 }
-
