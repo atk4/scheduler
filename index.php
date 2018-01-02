@@ -46,8 +46,8 @@ foreach($subject as $row) {
               if ($rowss['time']==$time) {
                 $array=[$s=>$time];
                 $s=$s+1;
+              }
             }
-          }
             unset($rowss);
             $check=FALSE;
             for($n=0;$n<=$s;$n++){
@@ -59,8 +59,8 @@ foreach($subject as $row) {
             if($check==FALSE){
               $subsubmenu->addItem($time)->on('click', new \atk4\ui\jsModal('Work',$vir));
             }
-          } else {
-            $subsubmenu->addItem($time)->on('click', new \atk4\ui\jsModal('Work',$vir));
+            }else {
+              $subsubmenu->addItem($time)->on('click', new \atk4\ui\jsModal('Work',$vir));
             }
           $min=$min+5;
         }
@@ -76,4 +76,3 @@ $button->link(['admin']);
 
 $button2 = $app->layout->add(['Button','Для учителей','icon'=>'student']);
 $button2->link(['teachers']);
-//$array=[1=>$item]
