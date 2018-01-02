@@ -40,16 +40,25 @@ foreach($subject as $row) {
           });
 
           $parents=$teacher->ref('Vecaki');
-
+          $s=1;
           if($parents->tryLoadAny()->loaded()==TRUE) {
             foreach($parents as $rowss) {
               if ($rowss['time']==$time) {
+                $array=[$s=>$time];
+                $s=$s+1;
+            }
+          }
+            unset($rowss);
+            $check=FALSE;
+            for($n=0;$n<=$s;$n++){
+              if ($array[$n]==$time) {
                 $subsubmenu->addItem([$time,'disabled']);
-              } else {
-                  $subsubmenu->addItem($time)->on('click', new \atk4\ui\jsModal('Work',$vir));
+                $check=TRUE;
               }
             }
-            unset($rowss);
+            if($check==FALSE){
+              $subsubmenu->addItem($time)->on('click', new \atk4\ui\jsModal('Work',$vir));
+            }
           } else {
             $subsubmenu->addItem($time)->on('click', new \atk4\ui\jsModal('Work',$vir));
             }
@@ -67,3 +76,4 @@ $button->link(['admin']);
 
 $button2 = $app->layout->add(['Button','Для учителей','icon'=>'student']);
 $button2->link(['teachers']);
+//$array=[1=>$item]
