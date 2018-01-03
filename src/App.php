@@ -5,7 +5,7 @@ class App extends \atk4\ui\App {
     public $sms;
 
     function __construct($mode) {
-        parent::__construct('Чето по русски');
+        parent::__construct('Расписние встреч');
 
         if ($mode == 'public') {
             $this->initLayout('Centered');
