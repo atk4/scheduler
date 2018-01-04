@@ -21,4 +21,4 @@ $tabs = $app->add('Tabs');
 $tabs->addTab('Subjects')->add('CRUD')->setModel(new Model\Subject($app->db));
 $tabs->addTab('Teachers')->add('CRUD')->setModel(new Model\Teacher($app->db));
 
-
+$tabs->addTab('Vecaki')->add('CRUD')->setModel(new Model\Vecaki($app->db));
