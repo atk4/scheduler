@@ -3,7 +3,7 @@ namespace Model;
 
 class Subject extends \atk4\data\Model {
     public $table = 'subject';
-    public $title = 'Урок';
+    public $title = 'Предмет';
 
     function init() {
         parent::init();
