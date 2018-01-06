@@ -71,7 +71,7 @@ foreach($subject as $row) {
 unset($row);
 
 $button = $app->layout->add(['Button','admin','icon'=>'space shuttle']);
-$button->link(['admin']);
+$button->link(['admin','admin'=>'list']);
 
 
 $button2 = $app->layout->add(['Button','Для учителей','icon'=>'student']);
