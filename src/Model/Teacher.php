@@ -3,7 +3,7 @@ namespace Model;
 
 class Teacher extends \atk4\data\Model {
     public $table = 'teacher';
-    public $title = 'Учитель';
+    public $title = 'Skolotaja';
     public $name = 'Учитель';
 
     function init() {
