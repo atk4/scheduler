@@ -18,7 +18,10 @@ class App extends \atk4\ui\App {
             $this->layout->leftMenu->addItem(['Skolotāji', 'icon'=>'users'], ['admin','check'=>'teachers']);
             $this->layout->leftMenu->addItem(['Ieraksti', 'icon'=>'unordered list'], ['admin','check'=>'list']);
         }
-        $this->db = \atk4\data\Persistence::connect('mysql://MySite:12345@localhost/scheduler');
-        //$this->db = new	\atk4\data\Persistence_SQL('mysql:dbname=scheduler;host=localhost','root','');
+       if (isset($_ENV['CLEARDB_DATABASE_URL'])) {
+            $this->db = \atk4\data\Persistence::connect($_ENV['CLEARDB_DATABASE_URL']);
+        } else {
+            $this->db = \atk4\data\Persistence::connect('mysql:host=127.0.0.1;dbname=scheduler;charset=utf8', 'root', '');
+        }
 }
 }
