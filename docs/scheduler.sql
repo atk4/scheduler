@@ -35,10 +35,6 @@ CREATE TABLE IF NOT EXISTS `subject` (
 -- Дамп данных таблицы `subject`
 --
 
-INSERT INTO `subject` (`id`, `name`) VALUES
-(6, 'Математика'),
-(7, 'Английский язык '),
-(8, 'Русский язык');
 
 -- --------------------------------------------------------
 
@@ -52,15 +48,6 @@ CREATE TABLE IF NOT EXISTS `teacher` (
   `contact_phone` varchar(50) DEFAULT NULL,
   `subject_id` int(11) unsigned NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
-
---
--- Дамп данных таблицы `teacher`
---
-
-INSERT INTO `teacher` (`id`, `name`, `contact_phone`, `subject_id`) VALUES
-(2, 'Ольга Шеремет', '20285725', 6),
-(3, 'Ирина Малиновская', '23527678', 7),
-(4, 'Валентина Борисова', '29857657', 8);
 
 -- --------------------------------------------------------
 
@@ -78,12 +65,6 @@ CREATE TABLE IF NOT EXISTS `vecaki` (
   `teacher_id` int(11) unsigned NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
---
--- Дамп данных таблицы `vecaki`
---
-
-INSERT INTO `vecaki` (`id`, `student_name`, `parent_name`, `contact_phone`, `time`, `is_avaliable`, `teacher_id`) VALUES
-(1, 'Коля', 'Алла', '20285776', '17:25', NULL, 2);
 
 --
 -- Индексы сохранённых таблиц
