@@ -5,11 +5,11 @@ class App extends \atk4\ui\App {
     public $sms;
 
     function __construct($mode) {
-        parent::__construct('Расписние встреч');
+        parent::__construct('Vecāku diena');
 
         if ($mode == 'public') {
             $this->initLayout('Centered');
-            $this->layout->add(['Header', 'Расписание встреч', 'huge centered'], 'Header');
+            $this->layout->add(['Header', 'Vecāku diena', 'huge centered'], 'Header');
         }elseif($mode == 'admin') {
             $this->initLayout('Admin');
             $this->layout->leftMenu->addItem(['Galvenā lapa', 'icon'=>'home'], ['index']);
