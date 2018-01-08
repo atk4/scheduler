@@ -9,8 +9,8 @@ class Teacher extends \atk4\data\Model {
     function init() {
         parent::init();
 
-        $this->addField('name');
-        $this->addField('contact_phone');
+        $this->addField('name',['caption'=>'Vards un uzvards']);
+        $this->addField('contact_phone',['caption'=>'Kont. numurs']);
 
         $this->hasOne('subject_id', new Subject())
             ->addTitle();

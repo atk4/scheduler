@@ -8,7 +8,7 @@ class Subject extends \atk4\data\Model {
     function init() {
         parent::init();
 
-        $this->addField('name');
+        $this->addField('name',['caption'=>'Stunda']);
 
         $this->hasMany('Teacher', new Teacher);
     }

@@ -10,10 +10,10 @@ class Vecaki extends \atk4\data\Model {
     function init() {
         parent::init();
 
-        $this->addField('student_name');
-        $this->addField('parent_name');
-        $this->addField('contact_phone');
-        $this->addField('time');
+        $this->addField('student_name',['caption'=>'Skolnieka vards un uzvards']);
+        $this->addField('parent_name',['caption'=>'Vecaku vards un uzvards']);
+        $this->addField('contact_phone',['caption'=>'Kont. numurs']);
+        $this->addField('time',['caption'=>'Laiks']);
         $this->hasOne('teacher_id', new Teacher)->addTitle();
 
     }
