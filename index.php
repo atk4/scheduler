@@ -24,7 +24,7 @@ foreach($subject as $row) {
       $subsubmenu = $submenu->addMenu($rows['name']);
       $min=0;
       for ($hour=17;$hour<=18;$hour++) {
-        for ($i=1;$i<=12;$i++) {
+        for ($i=1;$i<=6;$i++) {
           if ($min>=60) {
             $min=0;
           }
