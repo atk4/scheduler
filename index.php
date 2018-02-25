@@ -11,7 +11,7 @@ $menu = $col->addColumn()->add('Menu');
 $menu->addClass('vertical');
 $col2 = $col->addColumn();
 $mes = $col2->add(['Message','Lietošana instrukcija','massive info']);
-$mes->text->addParagraph('Lai pabridināt skolotāju par jūsu ierašanas laiku, lūdzu izvēlēties priekšmetu, skolotāja vārdu un vēlamo laiku.');
+$mes->text->addParagraph('Lai pabridināt skolotāju par jūsu ierašanas laiku, lūdzu izvēlaties priekšmetu, skolotāja vārdu un vēlamo laiku.');
 
 $subject = new Model\Subject($app->db);
 $subject->setOrder('name');
