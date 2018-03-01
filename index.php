@@ -24,7 +24,7 @@ foreach($subject as $row) {
       $subsubmenu = $submenu->addMenu($rows['name']);
       $min=0;
       for ($hour=17;$hour<=18;$hour++) {
-        for ($i=1;$i<=6;$i++) {
+        for ($i=1;$i<=12;$i++) {
           if ($min>=60) {
             $min=0;
           }
@@ -71,7 +71,7 @@ foreach($subject as $row) {
             }else {
               $subsubmenu->addItem($time)->on('click', new \atk4\ui\jsModal('Work',$vir));
             }
-          $min=$min+10;
+          $min=$min+5;
         }
       }
     }
