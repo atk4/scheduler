@@ -86,7 +86,10 @@ $button->link(['admin','check'=>'list']);
 $button2 = $col2->add(['Button','Skolotājiem','icon'=>'student']);
 $button2->link(['teachers']);
 
-$app->add(['ui'=>'divider']);
+$reminder = $app->add(['ui'=>'horizontal divider header']);
+$reminder->set('Esat punktuāli. Ne atnāciet pēc 19:00.');
+
+$app->add(['ui'=>'hidden divider']);
 
 $app->add(['Label','This app is made by Colibri School students','red right ribbon'])
 ->link('http://colibrischool.lv');
