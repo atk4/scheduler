@@ -6,6 +6,7 @@
     },
   "require":{
     "atk4/ui": "*",
-        "twilio/sdk": "^5.15"
+        "twilio/sdk": "^5.15",
+        "h4cc/wkhtmltopdf-i386": "*"
   }
 }

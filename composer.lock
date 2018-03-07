@@ -4,29 +4,29 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "ca04de0278d1c3179fbcc58c51ff4ef0",
+    "content-hash": "2d1c0deb715bcb4b4228a5ba8e0e098f",
     "packages": [
         {
             "name": "atk4/core",
-            "version": "1.3.4",
+            "version": "1.3.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/atk4/core.git",
-                "reference": "db5e20747cd0df9c71d0cf5969941f2dc21f7d6f"
+                "reference": "3368e1a993faa763892fc24fb8aeaa73b2eb00c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/atk4/core/zipball/db5e20747cd0df9c71d0cf5969941f2dc21f7d6f",
-                "reference": "db5e20747cd0df9c71d0cf5969941f2dc21f7d6f",
+                "url": "https://api.github.com/repos/atk4/core/zipball/3368e1a993faa763892fc24fb8aeaa73b2eb00c2",
+                "reference": "3368e1a993faa763892fc24fb8aeaa73b2eb00c2",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5.0"
+                "php": ">=5.5.0",
+                "psr/log": "~1.0"
             },
             "require-dev": {
                 "codeclimate/php-test-reporter": "*",
-                "phpunit/phpunit": "~4.0",
-                "psr/log": "~1.0",
+                "phpunit/phpunit": "~5.0",
                 "satooshi/php-coveralls": "^1.0"
             },
             "type": "library",
@@ -54,25 +54,25 @@
                 "php",
                 "trains"
             ],
-            "time": "2017-12-03T12:41:35+00:00"
+            "time": "2018-02-14T10:10:45+00:00"
         },
         {
             "name": "atk4/data",
-            "version": "1.2.3",
+            "version": "1.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/atk4/data.git",
-                "reference": "e1efb5066f1351f52126d6da69ffc3e4a124e4cb"
+                "reference": "b4f98dc5bf7f52ee4f9e52d8b27084a7602e0ed9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/atk4/data/zipball/e1efb5066f1351f52126d6da69ffc3e4a124e4cb",
-                "reference": "e1efb5066f1351f52126d6da69ffc3e4a124e4cb",
+                "url": "https://api.github.com/repos/atk4/data/zipball/b4f98dc5bf7f52ee4f9e52d8b27084a7602e0ed9",
+                "reference": "b4f98dc5bf7f52ee4f9e52d8b27084a7602e0ed9",
                 "shasum": ""
             },
             "require": {
                 "atk4/core": "^1.3",
-                "atk4/dsql": "^1.1",
+                "atk4/dsql": "^1.2",
                 "php": ">=5.6.0"
             },
             "require-dev": {
@@ -111,20 +111,20 @@
                 "query",
                 "sql"
             ],
-            "time": "2018-01-02T10:36:24+00:00"
+            "time": "2018-03-02T12:19:21+00:00"
         },
         {
             "name": "atk4/dsql",
-            "version": "1.1.5",
+            "version": "1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/atk4/dsql.git",
-                "reference": "20e1c4ab4e94a0bdf5bc72cbb281a5b1d3443716"
+                "reference": "f0544dae22c33e5581528add88bd8ee0a7034561"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/atk4/dsql/zipball/20e1c4ab4e94a0bdf5bc72cbb281a5b1d3443716",
-                "reference": "20e1c4ab4e94a0bdf5bc72cbb281a5b1d3443716",
+                "url": "https://api.github.com/repos/atk4/dsql/zipball/f0544dae22c33e5581528add88bd8ee0a7034561",
+                "reference": "f0544dae22c33e5581528add88bd8ee0a7034561",
                 "shasum": ""
             },
             "require": {
@@ -165,25 +165,25 @@
                 "orm",
                 "sql"
             ],
-            "time": "2017-09-12T11:29:31+00:00"
+            "time": "2018-03-02T12:02:27+00:00"
         },
         {
             "name": "atk4/ui",
-            "version": "1.3.2",
+            "version": "1.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/atk4/ui.git",
-                "reference": "aaf6c80894779902ed9397ba1ecc8edd6e097be4"
+                "reference": "d5fa59616c9fbca28dcd781a73d086e21eaec4ba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/atk4/ui/zipball/aaf6c80894779902ed9397ba1ecc8edd6e097be4",
-                "reference": "aaf6c80894779902ed9397ba1ecc8edd6e097be4",
+                "url": "https://api.github.com/repos/atk4/ui/zipball/d5fa59616c9fbca28dcd781a73d086e21eaec4ba",
+                "reference": "d5fa59616c9fbca28dcd781a73d086e21eaec4ba",
                 "shasum": ""
             },
             "require": {
                 "atk4/core": "^1.3",
-                "atk4/data": "^1.2",
+                "atk4/data": "^1.3",
                 "php": ">=5.6.0"
             },
             "require-dev": {
@@ -227,20 +227,107 @@
                 "web",
                 "widget"
             ],
-            "time": "2017-12-03T22:03:53+00:00"
+            "time": "2018-03-05T11:35:52+00:00"
         },
         {
-            "name": "twilio/sdk",
-            "version": "5.16.2",
+            "name": "h4cc/wkhtmltopdf-i386",
+            "version": "0.12.4",
             "source": {
                 "type": "git",
-                "url": "https://github.com/twilio/twilio-php.git",
-                "reference": "24b6830fa3157cb7e11108ee74eb678e83147593"
+                "url": "https://github.com/h4cc/wkhtmltopdf-i386.git",
+                "reference": "da14486ec8eba1873b026b56126ed02d2f2ae5e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twilio/twilio-php/zipball/24b6830fa3157cb7e11108ee74eb678e83147593",
-                "reference": "24b6830fa3157cb7e11108ee74eb678e83147593",
+                "url": "https://api.github.com/repos/h4cc/wkhtmltopdf-i386/zipball/da14486ec8eba1873b026b56126ed02d2f2ae5e3",
+                "reference": "da14486ec8eba1873b026b56126ed02d2f2ae5e3",
+                "shasum": ""
+            },
+            "bin": [
+                "bin/wkhtmltopdf-i386"
+            ],
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL Version 3"
+            ],
+            "authors": [
+                {
+                    "name": "Julius Beckmann",
+                    "email": "github@h4cc.de"
+                }
+            ],
+            "description": "Convert html to pdf using webkit (qtwebkit). Static linked linux binary for i386 systems.",
+            "homepage": "http://wkhtmltopdf.org/",
+            "keywords": [
+                "binary",
+                "convert",
+                "pdf",
+                "snapshot",
+                "thumbnail",
+                "wkhtmltopdf"
+            ],
+            "time": "2018-01-15T07:18:15+00:00"
+        },
+        {
+            "name": "psr/log",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/log.git",
+                "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
+                "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Log\\": "Psr/Log/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for logging libraries",
+            "homepage": "https://github.com/php-fig/log",
+            "keywords": [
+                "log",
+                "psr",
+                "psr-3"
+            ],
+            "time": "2016-10-10T12:19:37+00:00"
+        },
+        {
+            "name": "twilio/sdk",
+            "version": "5.16.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twilio/twilio-php.git",
+                "reference": "d33971d26a1f6c2d7914d6df1d76601f2921fb2a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twilio/twilio-php/zipball/d33971d26a1f6c2d7914d6df1d76601f2921fb2a",
+                "reference": "d33971d26a1f6c2d7914d6df1d76601f2921fb2a",
                 "shasum": ""
             },
             "require": {
@@ -273,7 +360,7 @@
                 "sms",
                 "twilio"
             ],
-            "time": "2017-12-16T01:07:41+00:00"
+            "time": "2018-02-09T23:39:06+00:00"
         }
     ],
     "packages-dev": [],
