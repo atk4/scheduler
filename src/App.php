@@ -31,10 +31,9 @@ class App extends \atk4\ui\App {
 
         $this->layout->add([
             'Header',
-            'Center-aligned',
+            'Vēcaku diena',
             'size'=>'huge',
             'aligned' => 'center',
-            'subHeader' => 'header with icon'
         ], 'Header');
 }
 }
