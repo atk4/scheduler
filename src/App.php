@@ -9,7 +9,6 @@ class App extends \atk4\ui\App {
 
         if ($mode == 'public') {
             $this->initLayout('Centered');
-            $this->layout->add(['Header', 'Vecāku diena', 'huge centered'], 'Header');
         }elseif($mode == 'admin') {
             $this->initLayout('Admin');
             $this->layout->leftMenu->addItem(['Galvenā lapa', 'icon'=>'home'], ['index']);
@@ -23,5 +22,19 @@ class App extends \atk4\ui\App {
         } else {
             $this->db = \atk4\data\Persistence::connect('mysql:host=127.0.0.1;dbname=scheduler;charset=utf8', 'root', '');
         }
+
+        $this->layout->template->del('Header');
+
+        $logo = 'logo.png';
+
+        $this->layout->add(['image',$logo,'small centered'],'Header');
+
+        $this->layout->add([
+            'Header',
+            'Center-aligned',
+            'size'=>'huge',
+            'aligned' => 'center',
+            'subHeader' => 'header with icon'
+        ], 'Header');
 }
 }
