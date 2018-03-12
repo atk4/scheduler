@@ -8,7 +8,11 @@ $teacher=new Model\Teacher($app->db);
 $teacher->load($app->stickyGet('id'));
 
 //$t = new \atk4\core\DebugTrait;
-$t = $app->add(['Console']);
-$file_name = '/tmp/'.$teacher['name'].'.pdf';
-$t->exec('open '.'"'.$file_name.'"');
+$file_name = '"/tmp/'.$teacher['name'].'.pdf"';
+$name = '"'.$teacher['name'].'.pdf"';
+header("Content-type: application/pdf");
+header("Content-Disposition: inline; filename = ".basename($file_name));
+@readfile($file_name);
+//$t->exec('open '.'"'.$file_name.'"');
+//$t->exec('file_get_contents '.'"'.$file_name.'"');
 //header('Location: index.php');
