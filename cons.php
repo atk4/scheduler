@@ -13,8 +13,11 @@ $where = 'http://localhost/scheduler/print.php?id='.$_GET['id']; //local
 //$where = 'https://vecaku-diena.herokuapp.com/print.php?id='.$_GET['id']; //not local
 $file_name = '/tmp/'.$teacher['name'].'.pdf';
 $de_way = '/usr/local/bin/wkhtmltopdf';
-$request = $de_way.' '.$where.' '.$file_name;
-//$t->exec($request);
+$request = $de_way.' "'.$where.'" "'.$file_name.'"';
+echo $request;
+$t->exec($request);
+header('Location: open.php?id='.$_GET['id']);
+$t->exec('open '.'"'.$file_name.'"');
 //$t->exec('/usr/local/bin/wkhtmltopdf http://localhost/scheduler/print.php?id=243 /tmp/sqkirskir.pdf');
-$t->exec('open '.'/tmp/sqkirskir.pdf');
+//$t->exec('open '.'/tmp/sqkirskir.pdf');
 //$t->exec('open /Applications/XAMPP/xamppfiles/htdocs/scheduler/logo.png');
