@@ -15,13 +15,6 @@ $header = $app->add(['Header',$teacher['name']]);
 $table = $app->add(['Table']);
 $table->setModel($parents,['time','student_name','parent_name','contact_phone']);
 
-$t = $app->add(['Console']);
-$where = 'print.php?id='.$_GET['id'];
-$file_name = $teacher['name'].'pdf';
-//$request = 'wkhtmltopdf https://vecaku-diena.herokuapp.com/parents.php test.pdf';
-$request = 'wkhtmltopdf https://vecaku-diena.herokuapp.com/parents.php test.pdf';
-$t->exec($request);
-
 /*$header = array('Vecaka Uzvards', 'Skolena Uzvards', 'Kontaktnumurs', 'Laiks');
 
 $pdf = new FPDF();
