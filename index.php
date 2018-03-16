@@ -9,7 +9,7 @@ $button2 = $app->add(['Button','Skolotājiem','massive green right floated']);
 $button2->link(['teachers']);
 
 $reminder = $app->add(['ui'=>'horizontal divider header']);
-$reminder->set('Esat punktuāli. Ne atnāciet pēc 19:00.');
+$reminder->set('Esat punktuāli. Neatnāciet pēc 19:00.');
 
 $app->add(['ui'=>'hidden divider']);
 
