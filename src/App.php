@@ -25,7 +25,7 @@ class App extends \atk4\ui\App {
 
         }elseif($mode == 'admin') {
             $this->initLayout('Admin');
-            $this->layout->leftMenu->addItem(['Galvenā lapa', 'icon'=>'home'], ['index']);
+            $this->layout->leftMenu->addItem(['Galvenā lapa', 'icon'=>'home'], ['logout']);
             $this->layout->leftMenu->addItem(['Priekšmeti', 'icon'=>'book'], ['admin','check'=>'lessens']);
             $this->layout->leftMenu->addItem(['Skolotāji', 'icon'=>'users'], ['admin','check'=>'teachers']);
             $this->layout->leftMenu->addItem(['Ieraksti', 'icon'=>'unordered list'], ['admin']);
