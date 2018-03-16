@@ -3,7 +3,7 @@
 require 'vendor/autoload.php';
 $app = new App('public');
 
-$button_back = $app->add(['Button','Обратно на главную страницу','big primary','icon'=>'home'])
+$button_back = $app->add(['Button','Atgriezties mājaslapā','big primary','icon'=>'home'])
 ->link(['index']);
 
 $app->add(['ui'=>'divider']);
