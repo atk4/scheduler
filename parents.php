@@ -48,14 +48,13 @@ if($t) {
       $teacherr= new Model\Teacher($app->db);
       $teacherr = $teacherr->load($t);
       $parentsss=$teacherr->ref('Vecaki');
-  //    $parents->reload();
       $check = $parentsss->tryLoadBy('time',$app->stickyGet('time'));
-
       if($check->loaded()) {
-        return [$form->error('Diemžēl, laiks jau ir aizņemts!') , new \atk4\ui\jsExpression('document.location="parents.php"')];
+        return new \atk4\ui\jsExpression('document.location="error.php"');
       } else {
         $form->model->save();
         return [$form->success('Jūsu pieprasījums ir iesniegts!') , new \atk4\ui\jsExpression('document.location="parents.php"')];
+
       }
     /*  if($parents->tryLoadAny()->loaded()==TRUE) {
         foreach($parents as $rowss) {
