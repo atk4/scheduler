@@ -40,6 +40,7 @@ if($t) {
   $vir = $app->add('VirtualPage');
   $vir->set(function($vir) use($parentss,$app,$teacher_id) {
     $form = $vir->add('Form');
+    $form->buttonSave->set('Sūtīt');
     $form->setModel($parentss,['student_name','parent_name','contact_phone']);
     $parentss['time'] = $app->stickyGet('time');
     $parentss['teacher_id'] = $teacher_id;
