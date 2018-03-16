@@ -47,18 +47,27 @@ if($t) {
     $form->onSubmit(function($form) use($app,$t) {
       $teacherr= new Model\Teacher($app->db);
       $teacherr = $teacherr->load($t);
-        $parentsss=$teacherr->ref('Vecaki');
-      if($parentsss->tryLoadAny()->loaded()==TRUE) {
-        foreach($parentsss as $rowss) {
-          if ($rowss['time']==$parentss['time']) {
-            $array=[$s=>$parentss['time']];
+      $parentsss=$teacherr->ref('Vecaki');
+  //    $parents->reload();
+      $check = $parentsss->tryLoadBy('time',$app->stickyGet('time'));
+
+      if($check->loaded()) {
+        return [$form->error('Diemžēl, laiks jau ir aizņemts!') , new \atk4\ui\jsExpression('document.location="parents.php"')];
+      } else {
+        $form->model->save();
+        return [$form->success('Jūsu pieprasījums ir iesniegts!') , new \atk4\ui\jsExpression('document.location="parents.php"')];
+      }
+    /*  if($parents->tryLoadAny()->loaded()==TRUE) {
+        foreach($parents as $rowss) {
+          if ($rowss['time']==$parents['time']) {
+            $array=[$s=>$parents['time']];
             $s=$s+1;
           }
         }
         unset($rowss);
         $check=FALSE;
         for($n=0;$n<=$s;$n++){
-          if (isset($array[$n]) && $array[$n]==$parentss['time']) {
+          if (isset($array[$n]) && $array[$n]==$parents['time']) {
             return [$form->error('Diemžēl, laiks jau ir aizņemts!') , new \atk4\ui\jsExpression('document.location="parents.php"')];
             $check=TRUE;
             break;
@@ -71,7 +80,7 @@ if($t) {
         }else {
           $form->model->save();
           return [$form->success('Jūsu pieprasījums ir iesniegts!') , new \atk4\ui\jsExpression('document.location="parents.php"')];
-        }
+        } */
 //      $form->model->save();
   //    return [$form->success('Jūsu pieprasījums ir iesniegts!') , new \atk4\ui\jsExpression('document.location="parents.php"')];
     });
