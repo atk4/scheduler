@@ -19,4 +19,4 @@ $grid = $app->add('Grid');
 $grid->setModel($parents);
 
 $button_print = $app->add(['Button','Распечатать список','small green','iconRight'=>'file pdf'])
-->link(['cons','id'=>$_GET['id']]);
+->link(['print','id'=>$_GET['id']]);

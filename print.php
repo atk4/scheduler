@@ -1,9 +1,9 @@
 <?php
 
-//require 'fpdf181/fpdf.php';
 require 'vendor/autoload.php';
 
-$app = new App('public');
+$app = new App('print');
+$app->layout->template->del('Header');
 
 $teacher=new Model\Teacher($app->db);
 $teacher->load($app->stickyGet('id'));
