@@ -91,9 +91,6 @@ $button = $c4->add(['Button','admin','icon'=>'key']);
 $button->link(['admin','check'=>'list']);
 
 
-$button2 = $c4->add(['Button','Skolotājiem','icon'=>'student']);
-$button2->link(['teachers']);
-
 $app->add(['ui'=>'divider']);
 
 $app->add(['Label','This app is made by Colibri School students','red right ribbon'])
