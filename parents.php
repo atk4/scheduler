@@ -16,7 +16,9 @@ $mes->text->addParagraph('Lai pabridināt skolotāju par jūsu ierašanas laiku,
 
 $table_s = $c1->add(['Table','very basic selectable'])->addStyle('cursor', 'pointer');
 $table_s->setModel($subject, [$subject->title_field]);
-$table_s->setOrder('name');
+$table_s->sortable = true;
+$table_s->sort_by = 'name';
+$table_s->sort_order = 'ascending';
 $table_s->on('click', 'tr', $c2->jsReload(['pr'=>$table_s->jsRow()->data('id')]));
 $pr = $app->stickyGet('pr');
 if ($pr) {
@@ -24,7 +26,9 @@ if ($pr) {
   $teacher = $subject->ref('Teacher');
   $table_t = $c2->add(['Table','very basic selectable'])->addStyle('cursor', 'pointer');
   $table_t->setModel($teacher,[$teacher->title_field]);
-  $table_s->setOrder('name');
+  $table_t->sortable = true;
+  $table_t->sort_by = 'name';
+  $table_t->sort_order = 'ascending';
   $table_t->on('click', 'tr', $c3->jsReload(['t'=>$table_t->jsRow()->data('id')]));
 }
 $t = $app->stickyGet('t');
