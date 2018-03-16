@@ -38,15 +38,39 @@ if($t) {
   $menu->addHeader('Laiki ('.$teacher['name'].')');
 
   $vir = $app->add('VirtualPage');
-  $vir->set(function($vir) use($parentss,$app,$teacher_id) {
+  $vir->set(function($vir) use($parents,$parentss,$app,$teacher_id) {
     $form = $vir->add('Form');
     $form->buttonSave->set('Sūtīt');
     $form->setModel($parentss,['student_name','parent_name','contact_phone']);
     $parentss['time'] = $app->stickyGet('time');
     $parentss['teacher_id'] = $teacher_id;
-    $form->onSubmit(function($form) {
-      $form->model->save();
-      return [$form->success('Jūsu pieprasījums ir iesniegts!') , new \atk4\ui\jsExpression('document.location="parents.php"')];
+    $form->onSubmit(function($form) use($parents) {
+      if($parents->tryLoadAny()->loaded()==TRUE) {
+        foreach($parents as $rowss) {
+          if ($rowss['time']==$parentss['time']) {
+            $array=[$s=>$parentss['time']];
+            $s=$s+1;
+          }
+        }
+        unset($rowss);
+        $check=FALSE;
+        for($n=0;$n<=$s;$n++){
+          if (isset($array[$n]) && $array[$n]==$parentss['time']) {
+            return [$form->error('Diemžēl, laiks jau ir aizņemts!') , new \atk4\ui\jsExpression('document.location="parents.php"')];
+            $check=TRUE;
+            break;
+          }
+        }
+        if($check==FALSE){
+          $form->model->save();
+          return [$form->success('Jūsu pieprasījums ir iesniegts!') , new \atk4\ui\jsExpression('document.location="parents.php"')];
+        }
+        }else {
+          $form->model->save();
+          return [$form->success('Jūsu pieprasījums ir iesniegts!') , new \atk4\ui\jsExpression('document.location="parents.php"')];
+        }
+//      $form->model->save();
+  //    return [$form->success('Jūsu pieprasījums ir iesniegts!') , new \atk4\ui\jsExpression('document.location="parents.php"')];
     });
   });
 
