@@ -17,9 +17,10 @@ if (isset($_GET['check'])) {
   } elseif ($check == 'teachers') {
     $crud->setModel(new Model\Teacher($app->db));
     $crud->addQuickSearch(['name','cabinet']);
-  } elseif ($check == 'list') {
-    $crud->setModel(new Model\Vecaki($app->db));
-    $crud->addQuickSearch(['student_name','parent_name','contact_phone','time']);
   }
 
+} else {
+  $crud = $app->add('CRUD');
+  $crud->setModel(new Model\Vecaki($app->db));
+  $crud->addQuickSearch(['student_name','parent_name','contact_phone','time']);
 }
