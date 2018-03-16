@@ -38,14 +38,16 @@ if($t) {
   $menu->addHeader('Laiki ('.$teacher['name'].')');
 
   $vir = $app->add('VirtualPage');
-  $vir->set(function($vir) use($parentss,$app,$teacher_id) {
+  $vir->set(function($vir) use($parentss,$app,$teacher_id,$t) {
     $form = $vir->add('Form');
     $form->buttonSave->set('Sūtīt');
     $form->setModel($parentss,['student_name','parent_name','contact_phone']);
     $parentss['time'] = $app->stickyGet('time');
     $parentss['teacher_id'] = $teacher_id;
-    $form->onSubmit(function($form) {
-      $parentsss = new Model\Vecaki($app->db);
+    $form->onSubmit(function($form) use($app,$t) {
+      $teacherr= new Model\Teacher($app->db);
+      $teacherr = $teacherr->load($t);
+        $parentsss=$teacherr->ref('Vecaki');
       if($parentsss->tryLoadAny()->loaded()==TRUE) {
         foreach($parentsss as $rowss) {
           if ($rowss['time']==$parentss['time']) {
