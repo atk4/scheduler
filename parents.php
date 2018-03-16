@@ -87,9 +87,6 @@ if($t) {
   }
 }
 
-$button = $c4->add(['Button','admin','icon'=>'key']);
-$button->link(['admin','check'=>'list']);
-
 
 $app->add(['ui'=>'divider']);
 
