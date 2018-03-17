@@ -56,10 +56,10 @@ if($t) {
       $parentsss=$teacherr->ref('Vecaki');
       $check = $parentsss->tryLoadBy('time',$app->stickyGet('time'));
       if($check->loaded()) {
-        return new \atk4\ui\jsExpression('document.location="error.php"');
+        return $app->jsRedirect(['error']);
       } else {
         $form->model->save();
-        return [$form->success('Jūsu pieprasījums ir iesniegts!') , new \atk4\ui\jsExpression('document.location="parents.php"')];
+        return [$form->success('Jūsu pieprasījums ir iesniegts!') , $app->jsRedirect(['parents'])];
 
       }
     /*  if($parents->tryLoadAny()->loaded()==TRUE) {
@@ -103,7 +103,7 @@ if($t) {
         $time = $hour.':'.$min;
       }
       $s=1;
-      if($parents->tryLoadAny()->loaded()==TRUE) {
+      if($parents->tryLoadAny()->loaded()) {
         foreach($parents as $rowss) {
           if ($rowss['time']==$time) {
             $array=[$s=>$time];

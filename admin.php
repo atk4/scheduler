@@ -30,7 +30,7 @@ If (isset($_SESSION['admin_access'])) {
       $counter = new Model\Counter($app->db);
       $counter->tryLoadBy('id','1');
       $label_counter = $app->add(['Label','Counter = '.$counter['counter'],'small red']);
-      $counter_show = $app->add(['Button','Reset counter','small red']);
+      $counter_show = $app->add(['Button','Press to reset counter','small red']);
       $counter_show->on('click', function($counter) use($app,$label_counter) {
           $counter = new Model\Counter($app->db);
           $counter->tryLoadBy('id','1');
