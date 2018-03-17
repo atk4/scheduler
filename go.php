@@ -10,7 +10,7 @@ $form->buttonSave->set('Enter');
 $form->setModel($check);
 $unknow = $_ENV['pass'] ?? 'admin';
 $unknow = $pass.$word;
-$form->onSubmit(function($form) use($unknow) {
+$form->onSubmit(function($form) use($unknow,$app) {
   if ($form->model['password'] == $unknow) {
       $_SESSION['admin_access'] = 'tkvbk0/0ilyvmamy';
       return $app->jsRedirect(['admin']);
