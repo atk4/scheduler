@@ -3,6 +3,11 @@
 require 'vendor/autoload.php';
 $app = new App('public');
 
+$back = $app->add(['Button','Atgriezties mājaslapā','green','icon'=>'reply'])
+->link(['index']);
+
+$app->add(['ui'=>'hidden divider']);
+
 $col = $app->add('Columns');
 $col->addClass('stackable');
 $subject= new Model\Subject($app->db);

@@ -3,11 +3,11 @@
 require 'vendor/autoload.php';
 $app = new App('public');
 
-$button_back = $app->add(['Button','Atpakaļ','big primary','icon'=>'home'])
-->link(['teachers']);
+$crumb = $app->add('BreadCrumb');
+$crumb->addCrumb('Mājaslapā', ['index']);
+$crumb->addCrumb('Skolotāji', ['teachers']);
+$app->add(['ui'=>'hidden divider']);
 
-$button_back = $app->add(['Button','Atgriezties mājaslapā','big primary','icon'=>'home'])
-->link(['index']);
 
 $app->add(['ui'=>'divider']);
 
