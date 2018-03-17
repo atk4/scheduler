@@ -17,3 +17,13 @@ $app->add(['Label','This app is made by Colibri School students','red right ribb
 ->link('http://colibrischool.lv');
 
 $app->add(['Header','2018.gada 22.martā plkst. 17:00 - 19:00.','tiny','aligned' => 'center']);
+
+$counter = new Model\Counter($app->db);
+$counter->tryLoadBy('id','1');
+If ($counter->loaded()) {
+  $counter['counter'] = $counter['counter'] + 1;
+  $counter->save();
+} else {
+  $counter['counter'] = 1;
+  $counter->save();
+}
