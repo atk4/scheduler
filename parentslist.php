@@ -18,5 +18,5 @@ $parents->setOrder('parent_name');
 $grid = $app->add('Grid');
 $grid->setModel($parents);
 
-$button_print = $app->add(['Button','Распечатать список','small green','iconRight'=>'file pdf'])
+$button_print = $app->add(['Button','Izdrukāt','small green','iconRight'=>'file pdf'])
 ->link(['print','id'=>$_GET['id']]);

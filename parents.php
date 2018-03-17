@@ -12,7 +12,7 @@ $c2 = $col->addColumn();
 $c3 = $col->addColumn();
 $c4 = $col->addColumn();
 $mes = $c4->add(['Message','Lietošanas instrukcija','massive info']);
-$mes->text->addParagraph('Lai pabridināt skolotāju par jūsu ierašanas laiku, lūdzu izvēlaties priekšmetu, skolotāja vārdu un vēlamo laiku.');
+$mes->text->addParagraph('Izvēlaties priekšmētu, skolotāju un velāmo laiku. Ja Jūs uzskatāt, ka 5 min būs par maz, reģistrejaties uz diviem laikiem pēc kārtas.');
 
 $table_s = $c1->add(['Table','very basic selectable'])->addStyle('cursor', 'pointer');
 $table_s->setModel($subject, [$subject->title_field]);
