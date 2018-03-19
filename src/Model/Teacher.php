@@ -11,6 +11,7 @@ class Teacher extends \atk4\data\Model {
 
         $this->addField('name',['caption'=>'Vards un uzvards','required'=>TRUE]);
         $this->addField('cabinet',['caption'=>'Kabinets','required'=>TRUE]);
+        $this->addField('available',['caption'=>'Bus','type'=>'boolean','required'=>TRUE]);
 
         $this->hasOne('subject_id', [new Subject(),'caption'=>'Grupa'])
             ->addTitle();
