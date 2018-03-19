@@ -13,7 +13,7 @@ $parents->setOrder('time');
 $header = $app->add(['Header',$teacher['name']]);
 
 $table = $app->add(['Table']);
-$table->setModel($parents,['time','student_name','parent_name','contact_phone']);
+$table->setModel($parents,['time','student_name','grade','parent_name','contact_phone']);
 
 /*$header = array('Vecaka Uzvards', 'Skolena Uzvards', 'Kontaktnumurs', 'Laiks');
 
