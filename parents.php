@@ -11,7 +11,6 @@ $app->add(['ui'=>'hidden divider']);
 $col = $app->add('Columns');
 $col->addClass('stackable');
 $subject= new Model\Subject($app->db);
-$subject->setOrder('name');
 $c1 = $col->addColumn();
 $c2 = $col->addColumn();
 $c3 = $col->addColumn();

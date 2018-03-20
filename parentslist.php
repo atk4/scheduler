@@ -14,7 +14,6 @@ $app->add(['ui'=>'hidden divider']);
 $teacher=new Model\Teacher($app->db);
 $teacher->load($app->stickyGet('id'));
 $parents= $teacher->ref('Vecaki');
-$parents->setOrder('parent_name');
 $grid = $app->add('Grid');
 $grid->setModel($parents);
 

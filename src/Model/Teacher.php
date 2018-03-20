@@ -19,6 +19,7 @@ class Teacher extends \atk4\data\Model {
         $this->getElement('subject_id')->ui['visible'] = false;
 
         $this->hasMany('Vecaki', new Vecaki);
+        $this->setOrder('name');
 
     }
 }

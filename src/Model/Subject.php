@@ -11,5 +11,6 @@ class Subject extends \atk4\data\Model {
         $this->addField('name',['caption'=>'Grupa','required'=>TRUE]);
 
         $this->hasMany('Teacher', new Teacher);
+        $this->setOrder('name');
     }
 }

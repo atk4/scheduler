@@ -16,6 +16,7 @@ class Vecaki extends \atk4\data\Model {
         $this->addField('contact_phone',['caption'=>'Kontaktnumurs','required'=>TRUE]);
         $this->addField('time',['caption'=>'Laiks']);
         $this->hasOne('teacher_id', new Teacher)->addTitle();
+        $this->setOrder('time');
 
     }
 }
