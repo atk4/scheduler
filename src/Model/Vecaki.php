@@ -10,7 +10,7 @@ class Vecaki extends \atk4\data\Model {
     function init() {
         parent::init();
 
-        $this->addField('student_name',['caption'=>'Skolnieka vards un uzvards','required'=>TRUE]);
+        $this->addField('student_name',['caption'=>'Skolnieka vārds un uzvārds','required'=>TRUE]);
         $this->addField('grade',['caption'=>'Klase','required'=>TRUE]);
         $this->addField('parent_name',['caption'=>'Vecaku vārds un uzvārds','required'=>TRUE]);
         $this->addField('contact_phone',['caption'=>'Kontaktnumurs','required'=>TRUE]);
