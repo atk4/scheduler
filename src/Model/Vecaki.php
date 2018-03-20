@@ -3,7 +3,7 @@ namespace Model;
 
 class Vecaki extends \atk4\data\Model {
     public $table = 'vecaki';
-    public $title = 'Vecaki';
+    public $title = 'Vecāki';
     public $name = 'parent_name';
     public $title_field = 'parent_name';
 
