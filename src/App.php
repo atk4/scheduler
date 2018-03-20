@@ -15,6 +15,8 @@ class App extends \atk4\ui\App {
             $logo = 'logo.png';
 
             $this->layout->add(['Image',$logo,'small centered'],'Header');
+            //$this->layout->add(['Label','Work','red right'],'Header');
+
 
             $this->layout->add([
                 'Header',

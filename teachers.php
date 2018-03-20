@@ -11,6 +11,6 @@ $app->add(['ui'=>'divider']);
 $teacher = new Model\Teacher($app->db);
 $teacher->setOrder('name');
 $grid = $app->add('Grid');
-$grid->setModel($teacher);
+$grid->setModel($teacher,['name','cabinet','subject']);
 $grid->addQuickSearch(['name']);
 $grid->addDecorator('name', new \atk4\ui\TableColumn\Link('parentslist.php?id={$id}'));
