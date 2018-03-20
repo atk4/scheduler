@@ -9,7 +9,7 @@ class Teacher extends \atk4\data\Model {
     function init() {
         parent::init();
 
-        $this->addField('name',['caption'=>'Vards un uzvards','required'=>TRUE]);
+        $this->addField('name',['caption'=>'Uzvārds, vārds','required'=>TRUE]);
         $this->addField('cabinet',['caption'=>'Kabinets','required'=>TRUE]);
 
         $this->hasOne('subject_id', [new Subject(),'caption'=>'Grupa'])

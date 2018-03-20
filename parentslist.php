@@ -9,7 +9,7 @@ $crumb->addCrumb('Skolotāji', ['teachers']);
 $app->add(['ui'=>'hidden divider']);
 
 
-$app->add(['ui'=>'divider']);
+$app->add(['ui'=>'hidden divider']);
 
 $teacher=new Model\Teacher($app->db);
 $teacher->load($app->stickyGet('id'));
