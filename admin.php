@@ -15,7 +15,7 @@ If (isset($_SESSION['admin_access'])) {
     if (isset($_GET['check'])) {
       $check = $_GET['check'];
       $crud = $app->add('CRUD');
-      if ($check == 'lessens') {
+      if ($check == 'lessons') {
         $crud->setModel(new Model\Subject($app->db));
         $crud->addQuickSearch(['name']);
       } elseif ($check == 'teachers') {

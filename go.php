@@ -8,9 +8,9 @@ $check->addField('password',['type'=>'password','required'=>TRUE]);
 $form = $app->layout->add('Form');
 $form->buttonSave->set('Enter');
 $form->setModel($check);
-$unknow = $_ENV['pass'] ?? 'admin';
-$form->onSubmit(function($form) use($unknow,$app) {
-  if ($form->model['password'] == $unknow) {
+$unknown = $_ENV['pass'] ?? 'admin';
+$form->onSubmit(function($form) use($unknown,$app) {
+  if ($form->model['password'] == $unknown) {
       $_SESSION['admin_access'] = 'tkvbk0/0ilyvmamy';
       return $app->jsRedirect(['admin']);
   } else {

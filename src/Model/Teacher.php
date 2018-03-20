@@ -4,14 +4,14 @@ namespace Model;
 class Teacher extends \atk4\data\Model {
     public $table = 'teacher';
     public $title = 'Skolotaja';
-    public $name = 'Учитель';
+    public $name = 'Skolotājs';
 
     function init() {
         parent::init();
 
         $this->addField('name',['caption'=>'Uzvārds, vārds','required'=>TRUE]);
         $this->addField('cabinet',['caption'=>'Kabinets','required'=>TRUE]);
-        $this->addField('available',['caption'=>'Bus','type'=>'boolean','required'=>TRUE]);
+        $this->addField('available',['caption'=>'Būs','type'=>'boolean','required'=>TRUE]);
 
         $this->hasOne('subject_id', [new Subject(),'caption'=>'Grupa'])
             ->addTitle();
