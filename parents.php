@@ -98,9 +98,9 @@ if($t) {
           $min=0;
         }
         if($min<10) {
-          $time = $hour.':0'.$min;
+          $time = $hour.'.0'.$min;
         }else {
-          $time = $hour.':'.$min;
+          $time = $hour.'.'.$min;
         }
         $s=1;
         if($parents->tryLoadAny()->loaded()) {
